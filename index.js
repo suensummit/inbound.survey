@@ -179,3 +179,20 @@ $("#reset").click(function (e) {
     scrollTop: $("body").offset().top
   }, 500);
 }).click(function (e) { e.preventDefault();});
+
+$(function() {
+  $("form[name='survey']").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true
+      }
+    },
+    messages: {
+      email: "請填寫有效電子郵件"
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});

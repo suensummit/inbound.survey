@@ -22,14 +22,14 @@
       fieldset{border-style: dotted; border-color: #36B2A7;padding: 10px; }
     </style>
   </head>
-  <body class="uk-width-2-3 uk-width-small-1-1 uk-width-medium-1-2 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
-    <form ng-cloak class="uk-grid uk-form">
+  <body class="uk-width-1-1 uk-width-small-1-1 uk-width-medium-1-1 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
+    <form ng-cloak class="uk-grid uk-form" name="survey">
 
       <div class="uk-section uk-width-1-1" ng-show='step===0'>
 
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label" for="Email">請輸入您的 Email</label>
-          <input class="uk-width-1-1 uk-input" type="text" for="Email" ng-model='form["Email"]'>
+          <input class="uk-width-1-1 uk-input" type="text" for="Email" ng-model='form["Email"]' name="email">
         </fieldset>
 
         <fieldset class="uk-fieldset uk-grid uk-form-stacked">
