@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html class="uk-grid uk-height-1-1 uk-width-1-1">
   <head>
+    <meta charset="UTF-8"></meta>
+    <meta http-equiv="X-UA-Compatible", content="IE=edge"></meta>
+    <meta name="language", content="zh_TW"></meta>
+    
     <title></title>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.11.0/axios.min.js'></script>
@@ -11,60 +15,94 @@
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js'></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css">
     <script type="text/javascript" src='./index.js'></script>
+    <style type="text/css">
+      form{text-align: center; }
+      label{padding: 10px; font-weight: bold;letter-spacing: 1px;text-align: center;background-color: #36B2A7;color: white;}
+      input{text-align: center; padding: 10px; }
+      fieldset{border-style: dotted; border-color: #36B2A7;padding: 10px; }
+    </style>
   </head>
-  <body class="uk-width-1-1 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
-    <form ng-cloak class="uk-grid">
+  <body class="uk-width-2-3 uk-width-small-1-1 uk-width-medium-1-2 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
+    <form ng-cloak class="uk-grid uk-form">
+
       <div class="uk-section uk-width-1-1" ng-show='step===0'>
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label " for="Email">Email</label>
-          <input class="uk-input " type="text" for="Email" ng-model='form["Email"]'>
+          <label class="uk-label" for="Email">請輸入您的 Email</label>
+          <input class="uk-width-1-1 uk-input" type="text" for="Email" ng-model='form["Email"]'>
+        </fieldset>
+
+        
+        <fieldset class="uk-fieldset uk-grid uk-form-stacked">
+
+          <label class="uk-label uk-text-lead" for="身份">身份</label>
+
+          <div>
+
+            <button class="uk-button" name="身份" ng-model='form["身份"]' value="高中生">&nbsp;高中生&nbsp;</button>
+            <button class="uk-button" name="身份" ng-model='form["身份"]' value="大學生">&nbsp;大學生&nbsp;</button>
+            <button class="uk-button" name="身份" ng-model='form["身份"]' value="研究所以上學生">&nbsp;研究所以上學生&nbsp;</button>
+            <button class="uk-button" name="身份" ng-model='form["身份"]' value="上班族">&nbsp;上班族&nbsp;</button>
+            <button class="uk-button" name="身份" ng-model='form["身份"]' value="其他">&nbsp;其他&nbsp;</button>
+
+            <!-- <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="高中生">&nbsp;高中生&nbsp; -->
+            <!-- <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="大學生">&nbsp;大學生&nbsp; -->
+            <!-- <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="研究所以上學生">&nbsp;研究所以上學生&nbsp; -->
+            <!-- <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="上班族">&nbsp;上班族&nbsp; -->
+            <!-- <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="其他">&nbsp;其他&nbsp; -->
+
+          </div>      
+        </fieldset>
+
+        <fieldset class="uk-fieldset uk-grid uk-form-horizontal">
+          <label class="uk-label uk-text-lead" for="生理性別">生理性別</label>
+          <div>
+            <input class="uk-radio" type="radio" name="生理性別" ng-model='form["生理性別"]' value="男">&nbsp;男&nbsp;
+            <input class="uk-radio" type="radio" name="生理性別" ng-model='form["生理性別"]' value="女">&nbsp;女&nbsp;
+            <input class="uk-radio" type="radio" name="生理性別" ng-model='form["生理性別"]' value="其他">&nbsp;其他&nbsp;
+          </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead " for="身份">身份</label>
-          <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="高中生">高中生<br>
-          <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="大學生">大學生<br>
-          <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="研究所以上學生">研究所以上學生
-          <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="上班族">上班族
-          <input class="uk-radio" type="radio" name="身份" ng-model='form["身份"]' value="其他">其他
+          <label class="uk-label uk-text-lead" for="失戀過幾次？">失戀過幾次？</label>
+          <input class="uk-input uk-width-1-1" type="number" min=0 for="失戀過幾次？" ng-model='form["失戀過幾次？"]'>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead " for="生理性別">生理性別</label>
-          <input class="uk-radio" type="radio" name="生理性別" ng-model='form["生理性別"]' value="男">男<br>
-          <input class="uk-radio" type="radio" name="生理性別" ng-model='form["生理性別"]' value="女">女<br>
-          <input class="uk-radio" type="radio" name="生理性別" ng-model='form["生理性別"]' value="其他">其他<br>
+          <label class="uk-label uk-text-lead" for="戀愛中？">戀愛中？</label>
+          <div>
+            <input class="uk-radio" type="radio" name="戀愛中？" ng-model='form["戀愛中？"]' value="是">&nbsp;是&nbsp;
+            <input class="uk-radio" type="radio" name="戀愛中？" ng-model='form["戀愛中？"]' value="否">&nbsp;否&nbsp;
+            <input class="uk-radio" type="radio" name="戀愛中？" ng-model='form["戀愛中？"]' value="不確定">&nbsp;不確定&nbsp;
+          </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead " for="失戀過幾次？">失戀過幾次？</label>
-          <input class="uk-input" type="number" for="失戀過幾次？" ng-model='form["失戀過幾次？"]'>
-        </fieldset>
-        <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead " for="戀愛中？">戀愛中？</label>
-          <input class="uk-radio" type="radio" name="戀愛中？" ng-model='form["戀愛中？"]' value="是">是
-          <input class="uk-radio" type="radio" name="戀愛中？" ng-model='form["戀愛中？"]' value="否">否
-          <input class="uk-radio" type="radio" name="戀愛中？" ng-model='form["戀愛中？"]' value="不確定">不確定
-        </fieldset>
-        <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead " for="性向">性向</label>
-          <input class="uk-radio" type="radio" name="性向" ng-model='form["性向"]' value="異性戀">異性戀<br>
-          <input class="uk-radio" type="radio" name="性向" ng-model='form["性向"]' value="同性戀">同性戀<br>
-          <input class="uk-radio" type="radio" name="性向" ng-model='form["性向"]' value="其他">其他<br>
+          <label class="uk-label uk-text-lead" for="性向">性向</label>
+          <div>
+            <input class="uk-radio" type="radio" name="性向" ng-model='form["性向"]' value="異性戀">&nbsp;異性戀&nbsp;
+            <input class="uk-radio" type="radio" name="性向" ng-model='form["性向"]' value="同性戀">&nbsp;同性戀&nbsp;
+            <input class="uk-radio" type="radio" name="性向" ng-model='form["性向"]' value="其他">&nbsp;其他&nbsp;
+          </div>
         </fieldset>
         <button class="uk-button" ng-click='next_section()'>下一頁</button>
       </div>
+
       <div class="uk-section uk-width-1-1" ng-show='step===$index+1' ng-repeat='question_set in questions'>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in question_set'>
-          <label class="uk-label uk-text-lead " for="question" ng-bind='question'></label>
-          <input ng-checked=true class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=1>不同意<br>
-          <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=2>不同意也不否認<br>
-          <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=3>同意
-          <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=4>非常同意
+          <label class="uk-label uk-text-lead" for="question" ng-bind='question'></label>
+          <div>
+            <input ng-checked="true" class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=1>&nbsp;不同意&nbsp;
+            <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=2>&nbsp;不同意也不否認&nbsp;
+            <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=3>&nbsp;同意&nbsp;
+            <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=4>&nbsp;非常同意&nbsp;            
+          </div>
         </fieldset>
         <button class="uk-button" ng-hide='step===9' ng-click='next_section()'>下一頁</button>
         <input class="uk-button" ng-show='step===9' type="submit" value="送出" ng-click='submitAndUpdateRadar()'>
       </div>
+
     </form>
-    <div class="uk-section uk-width-1-1" ng-show='step===10'>
+
+    <div class="uk-section uk-width-2-3" ng-show='step===10'>
       <canvas id="myChart" width="400" height="400"></canvas>
     </div>
+
   </body>
 </html>

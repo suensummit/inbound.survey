@@ -5,6 +5,7 @@ app.controller("FormCtrl", function($scope) {
   $scope.question_answer = {}
   $scope.next_section = function() {
     $scope.step += 1
+    jQuery(document).scrollTop(0);
   }
   $scope.submitAndUpdateRadar = function() {
     var fields = {}
@@ -26,7 +27,7 @@ app.controller("FormCtrl", function($scope) {
     var data = {
       labels: ["逃避型", "依賴型", "強迫型", "自戀型", "反社會型", "邊緣型", "演技型", "亞斯伯格型", "妄想型"],
       datasets: [{
-        label: "戀愛這種病-測你的戀愛人格",
+        label: "戀愛這種病：測你的戀愛人格",
         backgroundColor: "rgba(179,181,198,0.2)",
         borderColor: "rgba(179,181,198,1)",
         pointBackgroundColor: "rgba(179,181,198,1)",
@@ -51,8 +52,10 @@ app.controller("FormCtrl", function($scope) {
       options: {
         scale: {
           ticks: {
+            labelOffset: 20,
             autoSkip: false,
-            min: 20,
+            stepSize: 10,
+            min:  0,
             max: 40
           }
         }
