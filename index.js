@@ -16,14 +16,16 @@ app.controller("FormCtrl", function($scope) {
     _.mapKeys($scope.form, function(value, key) {
       fields[key] = value
     });
+    console.log(flatten_question);
     var scores = _.map($scope.questions, function(question_set) {
       return _.reduce(question_set, function(sum, elememt) {
         if (!!$scope.question_answer[elememt]) {
           sum += parseInt($scope.question_answer[elememt])
         }
         return sum
-      }, 0)
+      }, 1)
     })
+    console.log(scores);
     var data = {
       labels: ["逃避型", "依賴型", "強迫型", "自戀型", "反社會型", "邊緣型", "演技型", "亞斯伯格型", "妄想型"],
       datasets: [{
@@ -179,20 +181,3 @@ $("#reset").click(function (e) {
     scrollTop: $("body").offset().top
   }, 500);
 }).click(function (e) { e.preventDefault();});
-
-$(function() {
-  $("form[name='survey']").validate({
-    rules: {
-      email: {
-        required: true,
-        email: true
-      }
-    },
-    messages: {
-      email: "請填寫有效電子郵件"
-    },
-    submitHandler: function(form) {
-      form.submit();
-    }
-  });
-});
