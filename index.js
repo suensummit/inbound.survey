@@ -28,12 +28,12 @@ app.controller("FormCtrl", function($scope) {
       labels: ["逃避型", "依賴型", "強迫型", "自戀型", "反社會型", "邊緣型", "演技型", "亞斯伯格型", "妄想型"],
       datasets: [{
         label: "戀愛這種病：測你的戀愛人格",
-        backgroundColor: "rgba(179,181,198,0.2)",
-        borderColor: "rgba(179,181,198,1)",
-        pointBackgroundColor: "rgba(179,181,198,1)",
+        backgroundColor: "rgba(252,66,89,0.2)",
+        borderColor: "rgba(252,66,89,1)",
+        pointBackgroundColor: "rgba(252,66,89,1)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgba(179,181,198,1)",
+        pointHoverBorderColor: "rgba(252,66,89,1)",
         data: scores
       }]
     };
