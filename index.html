@@ -81,7 +81,7 @@
             <input class="uk-radio" type="radio" name="性向" ng-model='form["性向"]' value="其他">&nbsp;其他&nbsp;
           </div>
         </fieldset>
-        <button class="uk-button" ng-click='next_section()'>下一頁</button>
+        <button class="uk-button" ng-click='next_section()' id="reset">下一頁</button>
       </div>
 
       <div class="uk-section uk-width-1-1" ng-show='step===$index+1' ng-repeat='question_set in questions'>
@@ -94,7 +94,7 @@
             <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=4>&nbsp;非常同意&nbsp;            
           </div>
         </fieldset>
-        <button class="uk-button" ng-hide='step===9' ng-click='next_section()'>下一頁</button>
+        <button class="uk-button" ng-hide='step===9' ng-click='next_section()' id="reset">下一頁</button>
         <input class="uk-button" ng-show='step===9' type="submit" value="送出" ng-click='submitAndUpdateRadar()'>
       </div>
 

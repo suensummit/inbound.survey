@@ -5,7 +5,7 @@ app.controller("FormCtrl", function($scope) {
   $scope.question_answer = {}
   $scope.next_section = function() {
     $scope.step += 1
-    jQuery(document).scrollTop(0);
+    jQuery(document).scrollTop(0,0);
   }
   $scope.submitAndUpdateRadar = function() {
     var fields = {}
@@ -173,3 +173,9 @@ app.controller("FormCtrl", function($scope) {
     ]
   ]
 })
+
+$("#reset").click(function (e) {
+  $('html, body').animate({
+    scrollTop: $("body").offset().top
+  }, 500);
+}).click(function (e) { e.preventDefault();});
