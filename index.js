@@ -187,3 +187,18 @@ $("#reset").click(function (e) {
     scrollTop: $("body").offset().top
   }, 500);
 }).click(function (e) { e.preventDefault();});
+
+$(document).ready(function () {
+  $("#reset").click(function () {
+    var email = document.getElementById('email').value;
+
+    var re = null;
+    re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (email.length == 0) {
+      alert("請輸入電子郵件");
+    } else if (!re.test(email)) {
+      alert('請檢查電子郵件是否正確');
+    }
+  });
+});

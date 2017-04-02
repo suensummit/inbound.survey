@@ -35,7 +35,7 @@
 
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label" for="Email">請輸入您的 Email</label>
-          <input class="uk-width-1-1 uk-input" type="text" for="Email" ng-model='form["Email"]' name="email">
+          <input class="uk-width-1-1 uk-input" type="text" for="Email" ng-model='form["Email"]' name="email" id="email">
         </fieldset>
 
         <fieldset class="uk-fieldset uk-grid uk-form-stacked">
@@ -104,14 +104,14 @@
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in question_set'>
           <label class="uk-label uk-text-lead" for="question" ng-bind='question'></label>
           <div class="uk-button-group" data-uk-button-radio>
-            <label class="uk-button uk-width-1-4" for="{{question}}1">&nbsp;不同意&nbsp;</label>
-            <label class="uk-button uk-width-1-4" for="{{question}}2">&nbsp;不同意也不否認&nbsp;</label>
-            <label class="uk-button uk-width-1-4" for="{{question}}3">&nbsp;同意&nbsp;</label>
-            <label class="uk-button uk-width-1-4" for="{{question}}4">&nbsp;非常同意&nbsp;</label>
-            <input type="radio" id="{{question}}1" name="{{question}}" ng-model='question_answer[question]' value=1 style="display:none;"/>
-            <input type="radio" id="{{question}}2" name="{{question}}" ng-model='question_answer[question]' value=2 style="display:none;"/>
-            <input type="radio" id="{{question}}3" name="{{question}}" ng-model='question_answer[question]' value=3 style="display:none;"/>
-            <input type="radio" id="{{question}}4" name="{{question}}" ng-model='question_answer[question]' value=4 style="display:none;"/>
+            <label class="uk-button uk-width-1-4" for="{{question}}-1">&nbsp;不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="{{question}}-2">&nbsp;不同意也不否認&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="{{question}}-3">&nbsp;同意&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="{{question}}-4">&nbsp;非常同意&nbsp;</label>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value=1 style="display:none;"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value=2 style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value=3 style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value=4 style="display:none;"/>
           </div>
         </fieldset>
 
