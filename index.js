@@ -20,18 +20,14 @@ app.controller("FormCtrl", function($scope) {
     _.mapKeys($scope.form, function(value, key) {
       fields[key] = value
     });
-    console.log(fields);
-    console.log(flatten_question);
     var scores = _.map($scope.questions, function(question_set) {
       return _.reduce(question_set, function(sum, elememt) {
-        console.log(elememt);
         if (!!$scope.question_answer[elememt]) {
           sum += parseInt($scope.question_answer[elememt])
         }
         return sum
       }, 0)
     })
-    console.log(scores);
     var data = {
       labels: ["逃避型", "依賴型", "強迫型", "自戀型", "反社會型", "邊緣型", "演技型", "亞斯伯格型", "妄想型"],
       datasets: [{
@@ -202,3 +198,9 @@ $(document).ready(function () {
     }
   });
 });
+
+function saveImage() {
+  var canvas = document.getElementById('myChart');
+  var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+  window.location.href=image;
+}
