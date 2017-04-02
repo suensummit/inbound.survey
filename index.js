@@ -7,6 +7,10 @@ app.controller("FormCtrl", function($scope) {
     $scope.step += 1
     jQuery(document).scrollTop(0,0);
   }
+  $scope.prev_section = function() {
+    $scope.step -= 1
+    jQuery(document).scrollTop(0,0);
+  }
   $scope.submitAndUpdateRadar = function() {
     var fields = {}
     var flatten_question = _.flatten($scope.questions)

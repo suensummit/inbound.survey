@@ -103,7 +103,6 @@
         
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in question_set'>
           <label class="uk-label uk-text-lead" for="question" ng-bind='question'></label>
-
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-1-4" for="{{question}}1">&nbsp;不同意&nbsp;</label>
             <label class="uk-button uk-width-1-4" for="{{question}}2">&nbsp;不同意也不否認&nbsp;</label>
@@ -114,18 +113,14 @@
             <input type="radio" id="{{question}}3" name="{{question}}" ng-model='question_answer[question]' value=3 style="display:none;"/>
             <input type="radio" id="{{question}}4" name="{{question}}" ng-model='question_answer[question]' value=4 style="display:none;"/>
           </div>
-
-<!--           <br><div>
-            <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=1>&nbsp;不同意&nbsp;
-            <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=2>&nbsp;不同意也不否認&nbsp;
-            <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=3>&nbsp;同意&nbsp;
-            <input class="uk-radio" type="radio" name="{{question}}" ng-model='question_answer[question]' value=4>&nbsp;非常同意&nbsp;            
-          </div>
- -->
         </fieldset>
 
-        <br><button class="uk-width-1-1 uk-button uk-button-primary" ng-hide='step===9' ng-click='next_section()' id="reset">下一頁</button>
-
+        <br>
+        <div class="uk-width-1-1 uk-button-group">
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-hide='step===9' ng-click='prev_section()' id="reset">上一頁</button>
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-hide='step===9' ng-click='next_section()' id="reset">下一頁</button>
+        </div>
+        
         <br><input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step===9' type="submit" value="送出" ng-click='submitAndUpdateRadar()' id="reset">
       </div>
 
