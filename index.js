@@ -16,14 +16,16 @@ app.controller("FormCtrl", function($scope) {
     _.mapKeys($scope.form, function(value, key) {
       fields[key] = value
     });
+    console.log(fields);
     console.log(flatten_question);
     var scores = _.map($scope.questions, function(question_set) {
       return _.reduce(question_set, function(sum, elememt) {
+        console.log(elememt);
         if (!!$scope.question_answer[elememt]) {
           sum += parseInt($scope.question_answer[elememt])
         }
         return sum
-      }, 1)
+      }, 0)
     })
     console.log(scores);
     var data = {
