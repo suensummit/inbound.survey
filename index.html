@@ -22,55 +22,40 @@
     <link rel="apple-touch-icon-precomposed", href="https://i0.wp.com/inbound.tw/wp-content/uploads/2016/08/cropped-inboundLOGO.png?fit=32%2C32&ssl=1"></link>
     <link rel="apple-touch-icon", href="https://i0.wp.com/inbound.tw/wp-content/uploads/2016/08/cropped-inboundLOGO.png?fit=32%2C32&ssl=1"></link>
     <link rel="apple-touch-startup-image", href="https://i0.wp.com/inbound.tw/wp-content/uploads/2016/08/cropped-inboundLOGO.png?fit=32%2C32&ssl=1"></link>
-
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.11.0/axios.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js'></script>
-    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js'></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css">
     <script type="text/javascript" src='./index.js'></script>
     <style type="text/css">
-      form{text-align: center; }
-      label{padding: 10px; font-weight: bold;letter-spacing: 1px;text-align: center;background-color: #36B2A7;color: white;}
-      input{text-align: center; padding: 10px; }
-      fieldset{border-style: dotted; border-color: #36B2A7;padding: 10px; }
-      .uk-button-group{padding-left:0px;}
-      .uk-button{padding: 10px; letter-spacing: 1px; text-align: center; background-color: rgba(252,66,89,0.4); color: #FFF;}
-      .uk-button.uk-button-primary{background-color: rgba(54,178,167,1); color: #FFF;}
-      .uk-button.uk-button-primary:hover{background: rgba(54,178,167,0.5); color: #FFF;}
-      .uk-button.uk-active{background-color: rgba(252,66,89,1); color: #FFF;}
-      .uk-button:hover{background: rgba(252,66,89,0.8); color: #FFF;}
+    form{text-align: center; }
+    label{padding: 10px; font-weight: bold;letter-spacing: 1px;text-align: center;background-color: #36B2A7;color: white;}
+    input{text-align: center; padding: 10px; }
+    fieldset{border-style: dotted; border-color: #36B2A7;padding: 10px; }
+    .uk-button-group{padding-left:0px;}
+    .uk-button{padding: 10px; letter-spacing: 1px; text-align: center; background-color: rgba(252,66,89,0.4); color: #FFF;}
+    .uk-button.uk-button-primary{background-color: rgba(54,178,167,1); color: #FFF;}
+    .uk-button.uk-button-primary:hover{background: rgba(54,178,167,0.5); color: #FFF;}
+    .uk-button.uk-active{background-color: rgba(252,66,89,1); color: #FFF;}
+    .uk-button:hover{background: rgba(252,66,89,0.8); color: #FFF;}
+    [class*=uk-grid-width]>*{box-sizing:border-box;width:100%}.uk-grid-width-1-2>*{width:50%}.uk-grid-width-1-3>*{width:33.333%}.uk-grid-width-1-4>*{width:25%}.uk-grid-width-1-5>*{width:20%}.uk-grid-width-1-6>*{width:16.666%}.uk-grid-width-1-7>*{width:14.285%}.uk-grid-width-1-8>*{width:12.5%}.uk-grid-width-1-9>*{width:11.111%}.uk-grid-width-1-10>*{width:10%}.uk-grid-width-auto>*{width:auto}@media (min-width:480px){.uk-grid-width-small-1-1>*{width:100%}.uk-grid-width-small-1-2>*{width:50%}.uk-grid-width-small-1-3>*{width:33.333%}.uk-grid-width-small-1-4>*{width:25%}.uk-grid-width-small-1-5>*{width:20%}.uk-grid-width-small-1-6>*{width:16.666%}.uk-grid-width-small-1-7>*{width:14.285%}.uk-grid-width-small-1-8>*{width:12.5%}.uk-grid-width-small-1-9>*{width:11.111%}.uk-grid-width-small-1-10>*{width:10%}}@media (min-width:768px){.uk-grid-width-medium-1-1>*{width:100%}.uk-grid-width-medium-1-2>*{width:50%}.uk-grid-width-medium-1-3>*{width:33.333%}.uk-grid-width-medium-1-4>*{width:25%}.uk-grid-width-medium-1-5>*{width:20%}.uk-grid-width-medium-1-6>*{width:16.666%}.uk-grid-width-medium-1-7>*{width:14.285%}.uk-grid-width-medium-1-8>*{width:12.5%}.uk-grid-width-medium-1-9>*{width:11.111%}.uk-grid-width-medium-1-10>*{width:10%}}@media (min-width:960px){.uk-grid-width-large-1-1>*{width:100%}.uk-grid-width-large-1-2>*{width:50%}.uk-grid-width-large-1-3>*{width:33.333%}.uk-grid-width-large-1-4>*{width:25%}.uk-grid-width-large-1-5>*{width:20%}.uk-grid-width-large-1-6>*{width:16.666%}.uk-grid-width-large-1-7>*{width:14.285%}.uk-grid-width-large-1-8>*{width:12.5%}.uk-grid-width-large-1-9>*{width:11.111%}.uk-grid-width-large-1-10>*{width:10%}}@media (min-width:1220px){.uk-grid-width-xlarge-1-1>*{width:100%}.uk-grid-width-xlarge-1-2>*{width:50%}.uk-grid-width-xlarge-1-3>*{width:33.333%}.uk-grid-width-xlarge-1-4>*{width:25%}.uk-grid-width-xlarge-1-5>*{width:20%}.uk-grid-width-xlarge-1-6>*{width:16.666%}.uk-grid-width-xlarge-1-7>*{width:14.285%}.uk-grid-width-xlarge-1-8>*{width:12.5%}.uk-grid-width-xlarge-1-9>*{width:11.111%}.uk-grid-width-xlarge-1-10>*{width:10%}}.uk-width-1-1{width:100%}.uk-width-1-2,.uk-width-2-4,.uk-width-3-6,.uk-width-4-8,.uk-width-5-10{width:50%}.uk-width-1-3,.uk-width-2-6,.uk-width-3-9{width:33.333%}.uk-width-2-3,.uk-width-4-6,.uk-width-6-9{width:66.666%}.uk-width-1-4,.uk-width-2-8{width:25%}.uk-width-3-4,.uk-width-6-8{width:75%}.uk-width-1-5,.uk-width-2-10{width:20%}.uk-width-2-5,.uk-width-4-10{width:40%}.uk-width-3-5,.uk-width-6-10{width:60%}.uk-width-4-5,.uk-width-8-10{width:80%}.uk-width-1-6{width:16.666%}.uk-width-5-6{width:83.333%}.uk-width-1-7{width:14.285%}.uk-width-2-7{width:28.571%}.uk-width-3-7{width:42.857%}.uk-width-4-7{width:57.142%}.uk-width-5-7{width:71.428%}.uk-width-6-7{width:85.714%}.uk-width-1-8{width:12.5%}.uk-width-3-8{width:37.5%}.uk-width-5-8{width:65.5%}.uk-width-7-8{width:87.5%}.uk-width-1-9{width:11.11%}.uk-width-2-9{width:22.22%}.uk-width-4-9{width:44.44%}.uk-width-5-9{width:55.55%}.uk-width-7-9{width:77.77%}.uk-width-8-9{width:88.88%}.uk-width-1-10{width:10%}.uk-width-3-10{width:30%}.uk-width-7-10{width:70%}.uk-width-9-10{width:90%}@media (min-width:480px){.uk-width-small-1-1{width:100%}.uk-width-small-1-2,.uk-width-small-2-4,.uk-width-small-3-6,.uk-width-small-4-8,.uk-width-small-5-10{width:50%}.uk-width-small-1-3,.uk-width-small-2-6,.uk-width-small-3-9{width:33.333%}.uk-width-small-2-3,.uk-width-small-4-6,.uk-width-small-6-9{width:66.666%}.uk-width-small-1-4,.uk-width-small-2-8{width:25%}.uk-width-small-3-4,.uk-width-small-6-8{width:75%}.uk-width-small-1-5,.uk-width-small-2-10{width:20%}.uk-width-small-2-5,.uk-width-small-4-10{width:40%}.uk-width-small-3-5,.uk-width-small-6-10{width:60%}.uk-width-small-4-5,.uk-width-small-8-10{width:80%}.uk-width-small-1-6{width:16.666%}.uk-width-small-5-6{width:83.333%}.uk-width-small-1-7{width:14.285%}.uk-width-small-2-7{width:28.571%}.uk-width-small-3-7{width:42.857%}.uk-width-small-4-7{width:57.142%}.uk-width-small-5-7{width:71.428%}.uk-width-small-6-7{width:85.714%}.uk-width-small-1-8{width:12.5%}.uk-width-small-3-8{width:37.5%}.uk-width-small-5-8{width:65.5%}.uk-width-small-7-8{width:87.5%}.uk-width-small-1-9{width:11.11%}.uk-width-small-2-9{width:22.22%}.uk-width-small-4-9{width:44.44%}.uk-width-small-5-9{width:55.55%}.uk-width-small-7-9{width:77.77%}.uk-width-small-8-9{width:88.88%}.uk-width-small-1-10{width:10%}.uk-width-small-3-10{width:30%}.uk-width-small-7-10{width:70%}.uk-width-small-9-10{width:90%}}@media (min-width:768px){.uk-width-medium-1-1{width:100%}.uk-width-medium-1-2,.uk-width-medium-2-4,.uk-width-medium-3-6,.uk-width-medium-4-8,.uk-width-medium-5-10{width:50%}.uk-width-medium-1-3,.uk-width-medium-2-6,.uk-width-medium-3-9{width:33.333%}.uk-width-medium-2-3,.uk-width-medium-4-6,.uk-width-medium-6-9{width:66.666%}.uk-width-medium-1-4,.uk-width-medium-2-8{width:25%}.uk-width-medium-3-4,.uk-width-medium-6-8{width:75%}.uk-width-medium-1-5,.uk-width-medium-2-10{width:20%}.uk-width-medium-2-5,.uk-width-medium-4-10{width:40%}.uk-width-medium-3-5,.uk-width-medium-6-10{width:60%}.uk-width-medium-4-5,.uk-width-medium-8-10{width:80%}.uk-width-medium-1-6{width:16.666%}.uk-width-medium-5-6{width:83.333%}.uk-width-medium-1-7{width:14.285%}.uk-width-medium-2-7{width:28.571%}.uk-width-medium-3-7{width:42.857%}.uk-width-medium-4-7{width:57.142%}.uk-width-medium-5-7{width:71.428%}.uk-width-medium-6-7{width:85.714%}.uk-width-medium-1-8{width:12.5%}.uk-width-medium-3-8{width:37.5%}.uk-width-medium-5-8{width:65.5%}.uk-width-medium-7-8{width:87.5%}.uk-width-medium-1-9{width:11.11%}.uk-width-medium-2-9{width:22.22%}.uk-width-medium-4-9{width:44.44%}.uk-width-medium-5-9{width:55.55%}.uk-width-medium-7-9{width:77.77%}.uk-width-medium-8-9{width:88.88%}.uk-width-medium-1-10{width:10%}.uk-width-medium-3-10{width:30%}.uk-width-medium-7-10{width:70%}.uk-width-medium-9-10{width:90%}}@media (min-width:960px){.uk-width-large-1-1{width:100%}.uk-width-large-1-2,.uk-width-large-2-4,.uk-width-large-3-6,.uk-width-large-4-8,.uk-width-large-5-10{width:50%}.uk-width-large-1-3,.uk-width-large-2-6,.uk-width-large-3-9{width:33.333%}.uk-width-large-2-3,.uk-width-large-4-6,.uk-width-large-6-9{width:66.666%}.uk-width-large-1-4,.uk-width-large-2-8{width:25%}.uk-width-large-3-4,.uk-width-large-6-8{width:75%}.uk-width-large-1-5,.uk-width-large-2-10{width:20%}.uk-width-large-2-5,.uk-width-large-4-10{width:40%}.uk-width-large-3-5,.uk-width-large-6-10{width:60%}.uk-width-large-4-5,.uk-width-large-8-10{width:80%}.uk-width-large-1-6{width:16.666%}.uk-width-large-5-6{width:83.333%}.uk-width-large-1-7{width:14.285%}.uk-width-large-2-7{width:28.571%}.uk-width-large-3-7{width:42.857%}.uk-width-large-4-7{width:57.142%}.uk-width-large-5-7{width:71.428%}.uk-width-large-6-7{width:85.714%}.uk-width-large-1-8{width:12.5%}.uk-width-large-3-8{width:37.5%}.uk-width-large-5-8{width:65.5%}.uk-width-large-7-8{width:87.5%}.uk-width-large-1-9{width:11.11%}.uk-width-large-2-9{width:22.22%}.uk-width-large-4-9{width:44.44%}.uk-width-large-5-9{width:55.55%}.uk-width-large-7-9{width:77.77%}.uk-width-large-8-9{width:88.88%}.uk-width-large-1-10{width:10%}.uk-width-large-3-10{width:30%}.uk-width-large-7-10{width:70%}.uk-width-large-9-10{width:90%}}@media (min-width:1220px){.uk-width-xlarge-1-1{width:100%}.uk-width-xlarge-1-2,.uk-width-xlarge-2-4,.uk-width-xlarge-3-6,.uk-width-xlarge-4-8,.uk-width-xlarge-5-10{width:50%}.uk-width-xlarge-1-3,.uk-width-xlarge-2-6,.uk-width-xlarge-3-9{width:33.333%}.uk-width-xlarge-2-3,.uk-width-xlarge-4-6,.uk-width-xlarge-6-9{width:66.666%}.uk-width-xlarge-1-4,.uk-width-xlarge-2-8{width:25%}.uk-width-xlarge-3-4,.uk-width-xlarge-6-8{width:75%}.uk-width-xlarge-1-5,.uk-width-xlarge-2-10{width:20%}.uk-width-xlarge-2-5,.uk-width-xlarge-4-10{width:40%}.uk-width-xlarge-3-5,.uk-width-xlarge-6-10{width:60%}.uk-width-xlarge-4-5,.uk-width-xlarge-8-10{width:80%}.uk-width-xlarge-1-6{width:16.666%}.uk-width-xlarge-5-6{width:83.333%}.uk-width-xlarge-1-7{width:14.285%}.uk-width-xlarge-2-7{width:28.571%}.uk-width-xlarge-3-7{width:42.857%}.uk-width-xlarge-4-7{width:57.142%}.uk-width-xlarge-5-7{width:71.428%}.uk-width-xlarge-6-7{width:85.714%}.uk-width-xlarge-1-8{width:12.5%}.uk-width-xlarge-3-8{width:37.5%}.uk-width-xlarge-5-8{width:65.5%}.uk-width-xlarge-7-8{width:87.5%}.uk-width-xlarge-1-9{width:11.11%}.uk-width-xlarge-2-9{width:22.22%}.uk-width-xlarge-4-9{width:44.44%}.uk-width-xlarge-5-9{width:55.55%}.uk-width-xlarge-7-9{width:77.77%}.uk-width-xlarge-8-9{width:88.88%}.uk-width-xlarge-1-10{width:10%}.uk-width-xlarge-3-10{width:30%}.uk-width-xlarge-7-10{width:70%}.uk-width-xlarge-9-10{width:90%}}
     </style>
   </head>
   <body class="uk-width-1-1 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
     <form ng-cloak class="uk-grid uk-form" name="survey">
-
       <div class="uk-section uk-width-1-1" ng-show='step===0'>
-
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label" for="Email">請輸入您的 Email</label>
           <input class="uk-width-1-1 uk-input" type="text" for="Email" ng-model='form["Email"]' name="email" id="email">
         </fieldset>
-
-        <fieldset class="uk-fieldset uk-grid uk-form-stacked">
-          <label class="uk-label uk-text-lead" for="身份">身份</label>
-          <div class="uk-button-group" data-uk-button-radio>
-            <label class="uk-button uk-width-1-5" for="高中生">&nbsp;高中生&nbsp;</label>
-            <label class="uk-button uk-width-1-5" for="大學生">&nbsp;大學生&nbsp;</label>
-            <label class="uk-button uk-width-1-5" for="研究所以上學生">&nbsp;研究所以上學生&nbsp;</label>
-            <label class="uk-button uk-width-1-5" for="上班族">&nbsp;上班族&nbsp;</label>
-            <label class="uk-button uk-width-1-5" for="其他身份">&nbsp;其他&nbsp;</label>
-            <input type="radio" id="高中生" ng-model='form["身份"]' name="身份" value="高中生" style="display:none;"/>
-            <input type="radio" id="大學生" ng-model='form["身份"]' name="身份" value="大學生" style="display:none;"/>
-            <input type="radio" id="研究所以上學生" ng-model='form["身份"]' name="身份" value="研究所以上學生" style="display:none;"/>
-            <input type="radio" id="上班族" ng-model='form["身份"]' name="身份" value="上班族" style="display:none;"/>
-            <input type="radio" id="其他身份" ng-model='form["身份"]' name="身份" value="其他" style="display:none;"/>
-          </div>
+        <fieldset class="uk-fieldset uk-grid">
+          <label class="uk-label uk-text-lead" for="年齡">年齡</label>
+          <input class="uk-input uk-width-1-1" type="number" min=10 max=99 for="年齡" ng-model='form["年齡"]' placeholder="20">
         </fieldset>
-
         <fieldset class="uk-fieldset uk-grid uk-form-horizontal">
           <label class="uk-label uk-text-lead" for="生理性別">生理性別</label>
           <div class="uk-button-group" data-uk-button-radio>
@@ -82,24 +67,25 @@
             <input type="radio" id="其他生理性別" ng-model='form["生理性別"]' name="生理性別" value="其他" style="display:none;"/>
           </div>
         </fieldset>
-
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead" for="失戀過幾次？">失戀過幾次？</label>
-          <input class="uk-input uk-width-1-1" type="number" min=0 for="失戀過幾次？" ng-model='form["失戀過幾次？"]' placeholder="0">
+          <label class="uk-label uk-text-lead" for="我曾和______個人交往過">我曾和______個人交往過</label>
+          <input class="uk-input uk-width-1-1" type="number" min=0 max=99 for="我曾和______個人交往過" ng-model='form["我曾和______個人交往過"]' placeholder="0">
         </fieldset>
-
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead" for="戀愛中？">戀愛中？</label>
+          <label class="uk-label uk-text-lead" for="目前戀愛狀態">目前戀愛狀態</label>
           <div class="uk-button-group" data-uk-button-radio>
-            <label class="uk-button uk-width-1-3" for="是">&nbsp;是&nbsp;</label>
-            <label class="uk-button uk-width-1-3" for="否">&nbsp;否&nbsp;</label>
-            <label class="uk-button uk-width-1-3" for="不確定">&nbsp;不確定&nbsp;</label>
-            <input type="radio" id="是" ng-model='form["戀愛中？"]' name="戀愛中？" value="是" style="display:none;"/>
-            <input type="radio" id="否" ng-model='form["戀愛中？"]' name="戀愛中？" value="否" style="display:none;"/>
-            <input type="radio" id="不確定" ng-model='form["戀愛中？"]' name="戀愛中？" value="不確定" style="display:none;"/>
+            <label class="uk-button uk-width-1-5" for="穩定交往中">&nbsp;穩定交往中&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="已婚">&nbsp;已婚&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="單身，而且目前無對象">&nbsp;單身，而且目前無對象&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="單身，目前有曖昧/追求對象">&nbsp;單身，目前有曖昧/追求對象&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="其他">&nbsp;其他&nbsp;</label>
+            <input type="radio" id="穩定交往中" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="穩定交往中" style="display:none;"/>
+            <input type="radio" id="已婚" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="已婚" style="display:none;"/>
+            <input type="radio" id="單身，而且目前無對象" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="單身，而且目前無對象" style="display:none;"/>
+            <input type="radio" id="單身，目前有曖昧/追求對象" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="單身，目前有曖昧/追求對象" style="display:none;"/>
+            <input type="radio" id="其他" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="其他" style="display:none;"/>
           </div>
         </fieldset>
-
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="性向">性向</label>
           <div class="uk-button-group" data-uk-button-radio>
@@ -111,15 +97,25 @@
             <input type="radio" id="其他性向" ng-model='form["性向"]' name="性向" value="其他" style="display:none;"/>
           </div>
         </fieldset>
-
+        <fieldset class="uk-fieldset uk-grid">
+          <label class="uk-label uk-text-lead" for="下列哪一個形容詞最接近你的家庭（主要長大的那個家）">下列哪一個形容詞最接近你的家庭（主要長大的那個家）</label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-4" for="溫暖和諧">&nbsp;溫暖和諧&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="糾結複雜">&nbsp;糾結複雜&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="冷漠疏離">&nbsp;冷漠疏離&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="衝突不斷">&nbsp;衝突不斷&nbsp;</label>
+            <input type="radio" id="溫暖和諧" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="溫暖和諧" style="display:none;"/>
+            <input type="radio" id="糾結複雜" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="糾結複雜" style="display:none;"/>
+            <input type="radio" id="冷漠疏離" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="冷漠疏離" style="display:none;"/>
+            <input type="radio" id="衝突不斷" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="衝突不斷" style="display:none;"/>
+          </div>
+        </fieldset>
         <br><button class="uk-width-1-1 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
-
       </div>
-
       <div class="uk-section uk-width-1-1" ng-show='step===$index+1' ng-repeat='question_set in questions'>
         
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in question_set'>
-          <label class="uk-label uk-text-lead" for="question" ng-bind='question'></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="$parent.$index*10 + $index+1 + ' - ' +question"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-1-4" for="{{question}}-1">&nbsp;不同意&nbsp;</label>
             <label class="uk-button uk-width-1-4" for="{{question}}-2">&nbsp;不同意也不否認&nbsp;</label>
@@ -131,22 +127,217 @@
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value=4 style="display:none;"/>
           </div>
         </fieldset>
-
         <br>
         <div class="uk-width-1-1 uk-button-group">
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-hide='step===9' ng-click='prev_section()' id="reset">上一頁</button>
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-hide='step===9' ng-click='next_section()' id="reset">下一頁</button>
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
         </div>
-        
-        <br><input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step===9' type="submit" value="送出" ng-click='submitAndUpdateRadar()' id="reset">
       </div>
-
+      <div class="uk-section uk-width-1-1" ng-show='step===10'>
+        <section class="uk-section">
+          <p class="uk-article">
+            <h2>
+            謝謝你一路走到這裡，這個部分的測驗，我們希望你能回想你的感情生活，挑選出一個你最想探索的感情對象<br>（當前伴侶、舊情人或目前的曖昧對象都可以，不過，不可以是父母親）。下面的「他」就是指這個對象，針對你跟他相處的感覺，選出最適合的答案。
+            </h2>
+          </p>
+        </section>
+        <fieldset class="uk-fieldset uk-grid">
+          <label class="uk-label uk-text-lead" for="背景資料：我們在一起______個月">背景資料：我們在一起______個月<br>（請填阿拉伯數字，若是目前穩定交往的對象/舊情人，請填寫交往時間；若是曖昧對象或一言難盡的感情對象，請填寫這段關係維繫的時間，超過年的話請換算成月，以利分析計算）</label>
+          <input class="uk-input uk-width-1-1" type="number" min=0 for="背景資料：我們在一起______個月" ng-model='form["背景資料：我們在一起______個月"]' placeholder="0">
+        </fieldset>
+        <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
+          "我不習慣向對方表達我內心深處的感覺",
+          "當伴侶太親近我時，我就會很不安",
+          "我覺得很難讓自己去依賴對方",
+          "當我需要幫助時，向對方求助是沒有用的",
+          "我不太會向對方尋求幫助，包括安慰與支持",
+          "我擔心被對方拋棄 、會失去對方",
+          "我需要對方一再保證愛我",
+          "有時我覺得自己強迫對方表達更多感情與承諾",
+          "當我需要對方時，他卻無法適時出現，我就會覺得挫折",
+          "我會很希望對方一直把注意力放在我身上"
+          ]'>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +question"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-6" for="{{question}}-1">&nbsp;相當不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-6" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-6" for="{{question}}-3">&nbsp;有些不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-6" for="{{question}}-4">&nbsp;有些同意&nbsp;</label>
+            <label class="uk-button uk-width-1-6" for="{{question}}-5">&nbsp;同意&nbsp;</label>
+            <label class="uk-button uk-width-1-6" for="{{question}}-6">&nbsp;相當同意&nbsp;</label>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='有些同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-6" name="{{question}}" ng-model='question_answer[question]' value='相當同意' style="display:none;"/>
+          </div>
+        </fieldset>
+        <fieldset class="uk-fieldset uk-grid">
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +'他能滿足你多少的需求？'"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-5" for="他能滿足你多少的需求？-1">&nbsp;很少&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="他能滿足你多少的需求？-2">&nbsp;一些&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="他能滿足你多少的需求？-3">&nbsp;普通&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="他能滿足你多少的需求？-4">&nbsp;多&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="他能滿足你多少的需求？-5">&nbsp;很多&nbsp;</label>
+            <input type="radio" id="他能滿足你多少的需求？-1" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='很少' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-2" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='一些' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-3" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='普通' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-4" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='多' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-5" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='很多' style="display:none;"/>
+          </div>
+        </fieldset>
+        <fieldset class="uk-fieldset uk-grid">
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +'你對這段關係有多滿意？'"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-5" for="你對這段關係有多滿意？-1">&nbsp;很不滿意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="你對這段關係有多滿意？-2">&nbsp;有些不滿意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="你對這段關係有多滿意？-3">&nbsp;普通&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="你對這段關係有多滿意？-4">&nbsp;滿意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="你對這段關係有多滿意？-5">&nbsp;很滿意&nbsp;</label>
+            <input type="radio" id="你對這段關係有多滿意？-1" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='很不滿意' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-2" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='有些不滿意' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-3" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='普通' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-4" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='滿意' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-5" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='很滿意' style="display:none;"/>
+          </div>
+        </fieldset>
+        <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
+          "我覺得這段關係比大多數其他關係好",
+          "我常常希望我沒有跟他發展這段關係",
+          "這段關係大部分符合我的期待",
+          "我愛他",
+          "我們這段關係有許多問題"
+          ]'>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +question"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-5" for="{{question}}-1">&nbsp;很不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-3">&nbsp;有些不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-4">&nbsp;有些同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-5">&nbsp;很同意&nbsp;</label>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='有些同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='很同意' style="display:none;"/>
+          </div>
+        </fieldset>
+        <br>
+        <div class="uk-width-1-1 uk-button-group" ng-hide='step>=12'>
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
+        </div>
+      </div>
+      <div class="uk-section uk-width-1-1" ng-show='step===11'>
+        <section class="uk-section">
+          <p class="uk-article">
+            <h2>
+            加油，這是最後一頁了！這個部份的測量是想要了解你與你最近的生活狀態，請稍微回想你的特質與近日以來的生活，請按照你對自己的了解來作答。
+            </h2>
+          </p>
+        </section>
+        <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
+          "我是一個很有想像力的人，情感很豐富，也喜歡探索學習新的事物",
+          "我是一個謹慎的人，作事有條理，認真盡責，有自己的節奏和規律",
+          "我是一個熱情的人，喜歡社交、重友情，也很愛冒險，對事情的看法比較樂觀",
+          "我很容易信任別人、也能容易獲得別任信任、待人溫和脾氣好，有時心腸有點軟",
+          "我常常覺得焦慮、煩惱、緊張，有時候有些情緒化，常常覺得自己缺乏安全感",
+          "我經常把別人的需要，放在自己的需要前面。",
+          "小時候，我曾有那種「想要被父母照顧，但卻沒有如願」的經驗。",
+          "我覺得在照顧別人的過程中，能夠令我感到快樂和滿足。",
+          "我覺得生命就是一次又一次的心碎、難過。",
+          "對我來說，「付出」比「接受幫助」更能讓我快樂。",
+          "我會有點害怕那些有權威的人。",
+          "我發現幫別人做事，比幫自己做事更容易。",
+          "我覺得自己被遺棄。",
+          "在犧牲自己、幫助別人的過程中，能夠使我變成一個更好的人。",
+          "在我過去的生命經驗中，曾有信賴的人拋棄我。",
+          "我覺得自己很難去拒絶別人。",
+          "生命中某個重要的人曾讓我傷心。",
+          "整體而言我對自己感到滿意",
+          "我有時覺得自己很沒用",
+          "我覺得自己沒有什麼值得驕傲的地方",
+          "整體來說，我喜歡我自己"
+          ]'>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +question"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-5" for="{{question}}-1">&nbsp;很不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-3">&nbsp;有些不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-4">&nbsp;同意&nbsp;</label>
+            <label class="uk-button uk-width-1-5" for="{{question}}-5">&nbsp;很同意&nbsp;</label>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='很同意' style="display:none;"/>
+          </div>
+        </fieldset>
+        <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
+          "大致上，我目前的生活跟我理想的生活狀態相當接近",
+          "我的生活狀態非常理想",
+          "我對生活感到滿意",
+          "到目前為止，我能夠在生活中獲得我所想要的事物",
+          "如果生活可以重頭來過，我不會做大幅度的改變"
+          ]'>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +question"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-7" for="{{question}}-1">&nbsp;非常不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-7" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-7" for="{{question}}-3">&nbsp;有些不同意&nbsp;</label>
+            <label class="uk-button uk-width-1-7" for="{{question}}-4">&nbsp;普通&nbsp;</label>
+            <label class="uk-button uk-width-1-7" for="{{question}}-5">&nbsp;有些同意&nbsp;</label>
+            <label class="uk-button uk-width-1-7" for="{{question}}-6">&nbsp;同意&nbsp;</label>
+            <label class="uk-button uk-width-1-7" for="{{question}}-7">&nbsp;非常同意&nbsp;</label>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='普通' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='有些同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-6" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-7" name="{{question}}" ng-model='question_answer[question]' value='相當同意' style="display:none;"/>
+          </div>
+        </fieldset>
+        <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
+          "我覺得悶悶不樂",
+          "我做任何事都覺得費力",
+          "我覺得我的人生是失敗的",
+          "我睡不好",
+          "我覺得寂寞",
+          "人們是不友善的"
+          ]'>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +question"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-1-4" for="{{question}}-1">&nbsp;沒有或極少&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="{{question}}-2">&nbsp;有時候&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="{{question}}-3">&nbsp;經常&nbsp;</label>
+            <label class="uk-button uk-width-1-4" for="{{question}}-4">&nbsp;幾乎總是&nbsp;</label>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='沒有或極少' style="display:none;"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='有時候' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='經常' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='幾乎總是' style="display:none;"/>
+          </div>
+        </fieldset>
+        <br>
+        <div class="uk-width-1-1 uk-button-group" ng-hide='step>=11'>
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
+          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
+        </div>
+        <br><input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step>=11' type="submit" value="送出" ng-click='submitAndUpdateRadar()' id="reset">
+      </div>
     </form>
-
-    <div class="uk-section uk-width-1-1" ng-show='step===10'>
+    <div class="uk-section uk-width-1-1" ng-show='step>=12'>
+      <section class="uk-section">
+        <p class="uk-article">
+          <h2>
+          測驗結果出爐啦！！下面這個「九芒星圖」就是專屬於你個人的戀愛九型人格，據岡田尊司醫生的說法，你可以其中最高分的3個人格即為你主要的戀愛人格。此外，高於20分的人格也具有參考價值。<br>倘若你對此測量本身有任何疑問的夥伴，也歡迎來信討論。haitaibear@gmail.com
+          </h2>
+        </p>
+      </section>
       <canvas id="myChart" width="400" height="400"></canvas>
       <a class="uk-width-1-1 uk-button uk-button-primary" href="#" onclick="saveImage();" >&nbsp;下載結果&nbsp;</a>
     </div>
-
   </body>
 </html>
