@@ -14,9 +14,7 @@ app.controller("FormCtrl", function($scope) {
   $scope.submitAndUpdateRadar = function() {
     var fields = {}
     var flatten_question = _.flatten($scope.questions)
-    _.each(flatten_question, (q) => {
-      fields[q] = $scope.question_answer[q]
-    })
+    fields=_.clone($scope.question_answer)
     _.mapKeys($scope.form, function(value, key) {
       fields[key] = value
     });
