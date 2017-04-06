@@ -325,6 +325,15 @@
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='我幾乎總是這樣想' style="display:none;"/>
           </div>
         </fieldset>
+        <fieldset class="uk-fieldset uk-grid">
+          <label class="uk-label uk-text-lead" for="question" ng-bind="141 + ' - ' +'是否願意參與研究'"></label>
+          <div class="uk-button-group" data-uk-button-radio>
+            <label class="uk-button uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1" for="是否願意參與研究-1">&nbsp;我願意將我的資料提供給失戀花園團隊進行研究&nbsp;</label>
+            <label class="uk-button uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1" for="是否願意參與研究-2">&nbsp;我不願意將我的資料提供於予研究（我們也絕對尊重你的決定！）&nbsp;</label>
+            <input type="radio" id="是否願意參與研究-1" name="是否願意參與研究" ng-model='question_answer[hashCode("是否願意參與研究")]' value='我願意將我的資料提供給失戀花園團隊進行研究' style="display:none;" class="required"/>
+            <input type="radio" id="是否願意參與研究-2" name="是否願意參與研究" ng-model='question_answer[hashCode("是否願意參與研究")]' value='我不願意將我的資料提供於予研究（我們也絕對尊重你的決定！）' style="display:none;"/>
+          </div>
+        </fieldset>
         <br>
         <div class="uk-width-1-1 uk-button-group" ng-hide='step>=11'>
           <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
