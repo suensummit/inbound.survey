@@ -29,6 +29,7 @@
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css">
     <script type="text/javascript" src='./index.js'></script>
     <style type="text/css">
@@ -49,7 +50,7 @@
     </style>
   </head>
   <body class="uk-width-1-1 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
-    <form ng-cloak class="uk-grid uk-form" name="survey" id="survey">
+    <form ng-cloak class="uk-grid uk-form" name="survey" id="survey" novalidate>
       <div class="uk-section uk-width-1-1" ng-show='step===0'>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label" for="Email">請輸入您的 Email</label>
@@ -57,7 +58,7 @@
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="年齡">年齡</label>
-          <input class="uk-input uk-width-1-1" type="number" min=10 max=99 for="年齡" ng-model='form["年齡"]' placeholder="20">
+          <input class="uk-input uk-width-1-1" type="number" min=10 max=99 for="年齡" ng-model='form["年齡"]' placeholder="年齡">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="生理性別">生理性別</label>
@@ -72,7 +73,7 @@
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="我曾和______個人交往過">我曾和______個人交往過</label>
-          <input class="uk-input uk-width-1-1" type="number" min=0 max=99 for="我曾和______個人交往過" ng-model='form["我曾和______個人交往過"]' placeholder="0">
+          <input class="uk-input uk-width-1-1" type="number" min=0 max=99 for="我曾和______個人交往過" ng-model='form["我曾和______個人交往過"]' placeholder="我曾和______個人交往過">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="目前戀愛狀態">目前戀愛狀態</label>
@@ -113,7 +114,7 @@
             <input type="radio" id="衝突不斷" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="衝突不斷" style="display:none;"/>
           </div>
         </fieldset>
-        <br><button class="uk-width-1-1 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
+        <br><button type="button" class="uk-width-1-1 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
       </div>
       <div class="uk-section uk-width-1-1" ng-show='step===$index+1' ng-repeat='question_set in questions'>
         
@@ -132,8 +133,8 @@
         </fieldset>
         <br>
         <div class="uk-width-1-1 uk-button-group">
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
+          <button type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
+          <button type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
         </div>
       </div>
       <div class="uk-section uk-width-1-1" ng-show='step===10'>
@@ -146,7 +147,7 @@
         </section>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="背景資料：我們在一起______個月">91&nbsp;-&nbsp;背景資料：我們在一起______個月<br>（請填阿拉伯數字，若是目前穩定交往的對象／舊情人，請填寫交往時間；若是曖昧對象或一言難盡的感情對象，請填寫這段關係維繫的時間，超過年的話請換算成月，以利分析計算）</label>
-          <input class="uk-input uk-width-1-1" type="number" min=0 for="背景資料：我們在一起______個月" ng-model='form["背景資料：我們在一起______個月"]' placeholder="0" class="required">
+          <input class="uk-input uk-width-1-1" type="number" min=0 for="背景資料：我們在一起______個月" ng-model='form["背景資料：我們在一起______個月"]' placeholder="我們在一起______個月" class="required">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
           "我不習慣向對方表達我內心深處的感覺",
@@ -229,8 +230,8 @@
         </fieldset>
         <br>
         <div class="uk-width-1-1 uk-button-group" ng-hide='step>=12'>
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
+          <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
+          <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
         </div>
       </div>
       <div class="uk-section uk-width-1-1" ng-show='step===11'>
@@ -325,11 +326,11 @@
         </fieldset>
         <br>
         <div class="uk-width-1-1 uk-button-group" ng-hide='step>=11'>
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
-          <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
+          <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
+          <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
         </div>
         <br>
-        <button class="uk-width-1-1 uk-button uk-button-primary" ng-click='prev_section()' id="reset">回上一頁檢查一下，有沒有沒填到的問題？</button>
+        <button  type="button"  class="uk-width-1-1 uk-button uk-button-primary" ng-click='prev_section()' id="reset">回上一頁檢查一下，有沒有沒填到的問題？</button>
         <input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step>=11' type="submit" value="送出" ng-click='submitAndUpdateRadar()'>
       </div>
     </form>
