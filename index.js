@@ -12,38 +12,48 @@ app.controller("FormCtrl", function($scope) {
     jQuery(document).scrollTop(0,0);
   }
   $scope.submitAndUpdateRadar = function() {
-    var fields = {}
-    var flatten_question = _.flatten($scope.questions)
-    fields=_.clone($scope.question_answer)
-    _.mapKeys($scope.form, function(value, key) {
-      fields[key] = value
+    $('#survey').submit(function() {
+      if ($('input:checkbox', this).is(':checked') && $('input:radio', this).is(':checked')) {
+
+        var fields = {}
+        var flatten_question = _.flatten($scope.questions)
+        fields=_.clone($scope.question_answer)
+        _.mapKeys($scope.form, function(value, key) {
+          fields[key] = value
+        });
+        var scores = _.map($scope.questions, function(question_set) {
+          return _.reduce(question_set, function(sum, elememt) {
+            if (!!$scope.question_answer[elememt]) {
+              sum += parseInt($scope.question_answer[elememt])
+            }
+            return sum
+          }, 0)
+        })
+        var data = {
+          labels: ["逃避型", "依賴型", "強迫型", "自戀型", "反社會型", "邊緣型", "演技型", "亞斯伯格型", "妄想型"],
+          datasets: [{
+            label: "戀愛這種病：測你的戀愛人格",
+            backgroundColor: "rgba(252,66,89,0.2)",
+            borderColor: "rgba(252,66,89,1)",
+            pointBackgroundColor: "rgba(252,66,89,1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(252,66,89,1)",
+            data: scores
+          }]
+        };
+        buildChart(data);
+        axios.post(airtable_write_endpoint, {
+          "fields": fields
+        })
+        $scope.next_section()
+
+      } else {
+        alert('請完整填寫再送出！');
+        // $scope.prev_section()
+        return false;
+      }
     });
-    var scores = _.map($scope.questions, function(question_set) {
-      return _.reduce(question_set, function(sum, elememt) {
-        if (!!$scope.question_answer[elememt]) {
-          sum += parseInt($scope.question_answer[elememt])
-        }
-        return sum
-      }, 0)
-    })
-    var data = {
-      labels: ["逃避型", "依賴型", "強迫型", "自戀型", "反社會型", "邊緣型", "演技型", "亞斯伯格型", "妄想型"],
-      datasets: [{
-        label: "戀愛這種病：測你的戀愛人格",
-        backgroundColor: "rgba(252,66,89,0.2)",
-        borderColor: "rgba(252,66,89,1)",
-        pointBackgroundColor: "rgba(252,66,89,1)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgba(252,66,89,1)",
-        data: scores
-      }]
-    };
-    buildChart(data);
-    axios.post(airtable_write_endpoint, {
-      "fields": fields
-    })
-    $scope.next_section()
   }
 
   function buildChart(data) {

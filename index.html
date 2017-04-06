@@ -49,7 +49,7 @@
     </style>
   </head>
   <body class="uk-width-1-1 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
-    <form ng-cloak class="uk-grid uk-form" name="survey">
+    <form ng-cloak class="uk-grid uk-form" name="survey" id="survey">
       <div class="uk-section uk-width-1-1" ng-show='step===0'>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label" for="Email">請輸入您的 Email</label>
@@ -65,7 +65,7 @@
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="男">&nbsp;男&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="女">&nbsp;女&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="其他生理性別">&nbsp;其他&nbsp;</label>
-            <input type="radio" id="男" ng-model='form["生理性別"]' name="生理性別" value="男" style="display:none;"/>
+            <input type="radio" id="男" ng-model='form["生理性別"]' name="生理性別" value="男" style="display:none;" class="required"/>
             <input type="radio" id="女" ng-model='form["生理性別"]' name="生理性別" value="女" style="display:none;"/>
             <input type="radio" id="其他生理性別" ng-model='form["生理性別"]' name="生理性別" value="其他" style="display:none;"/>
           </div>
@@ -82,7 +82,7 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="單身，而且目前無對象">&nbsp;單身，而且目前無對象&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="單身，目前有曖昧/追求對象">&nbsp;單身，目前有曖昧/追求對象&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="其他">&nbsp;其他&nbsp;</label>
-            <input type="radio" id="穩定交往中" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="穩定交往中" style="display:none;"/>
+            <input type="radio" id="穩定交往中" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="穩定交往中" style="display:none;" class="required"/>
             <input type="radio" id="已婚" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="已婚" style="display:none;"/>
             <input type="radio" id="單身，而且目前無對象" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="單身，而且目前無對象" style="display:none;"/>
             <input type="radio" id="單身，目前有曖昧/追求對象" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="單身，目前有曖昧/追求對象" style="display:none;"/>
@@ -95,7 +95,7 @@
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="異性戀">&nbsp;異性戀&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="同性戀">&nbsp;同性戀&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="其他性向">&nbsp;其他&nbsp;</label>
-            <input type="radio" id="異性戀" ng-model='form["性向"]' name="性向" value="異性戀" style="display:none;"/>
+            <input type="radio" id="異性戀" ng-model='form["性向"]' name="性向" value="異性戀" style="display:none;" class="required"/>
             <input type="radio" id="同性戀" ng-model='form["性向"]' name="性向" value="同性戀" style="display:none;"/>
             <input type="radio" id="其他性向" ng-model='form["性向"]' name="性向" value="其他" style="display:none;"/>
           </div>
@@ -107,7 +107,7 @@
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="糾結複雜">&nbsp;糾結複雜&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="冷漠疏離">&nbsp;冷漠疏離&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="衝突不斷">&nbsp;衝突不斷&nbsp;</label>
-            <input type="radio" id="溫暖和諧" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="溫暖和諧" style="display:none;"/>
+            <input type="radio" id="溫暖和諧" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="溫暖和諧" style="display:none;" class="required"/>
             <input type="radio" id="糾結複雜" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="糾結複雜" style="display:none;"/>
             <input type="radio" id="冷漠疏離" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="冷漠疏離" style="display:none;"/>
             <input type="radio" id="衝突不斷" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="衝突不斷" style="display:none;"/>
@@ -124,7 +124,7 @@
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-2">&nbsp;不同意也不否認&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-3">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-4">&nbsp;非常同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value=1 style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value=1 style="display:none;" class="required"/>
             <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value=2 style="display:none;"/>
             <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value=3 style="display:none;"/>
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value=4 style="display:none;"/>
@@ -146,7 +146,7 @@
         </section>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="背景資料：我們在一起______個月">91&nbsp;-&nbsp;背景資料：我們在一起______個月<br>（請填阿拉伯數字，若是目前穩定交往的對象／舊情人，請填寫交往時間；若是曖昧對象或一言難盡的感情對象，請填寫這段關係維繫的時間，超過年的話請換算成月，以利分析計算）</label>
-          <input class="uk-input uk-width-1-1" type="number" min=0 for="背景資料：我們在一起______個月" ng-model='form["背景資料：我們在一起______個月"]' placeholder="0">
+          <input class="uk-input uk-width-1-1" type="number" min=0 for="背景資料：我們在一起______個月" ng-model='form["背景資料：我們在一起______個月"]' placeholder="0" class="required">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
           "我不習慣向對方表達我內心深處的感覺",
@@ -168,7 +168,7 @@
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-4">&nbsp;有些同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-5">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-6">&nbsp;相當同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;" class="required"/>
             <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
             <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='有些同意' style="display:none;"/>
@@ -184,7 +184,7 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-4">&nbsp;多&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-5">&nbsp;很多&nbsp;</label>
-            <input type="radio" id="他能滿足你多少的需求？-1" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='很少' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-1" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='很少' style="display:none;" class="required"/>
             <input type="radio" id="他能滿足你多少的需求？-2" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='一些' style="display:none;"/>
             <input type="radio" id="他能滿足你多少的需求？-3" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='普通' style="display:none;"/>
             <input type="radio" id="他能滿足你多少的需求？-4" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='多' style="display:none;"/>
@@ -199,7 +199,7 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-4">&nbsp;滿意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-5">&nbsp;很滿意&nbsp;</label>
-            <input type="radio" id="你對這段關係有多滿意？-1" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='很不滿意' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-1" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='很不滿意' style="display:none;" class="required"/>
             <input type="radio" id="你對這段關係有多滿意？-2" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='有些不滿意' style="display:none;"/>
             <input type="radio" id="你對這段關係有多滿意？-3" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='普通' style="display:none;"/>
             <input type="radio" id="你對這段關係有多滿意？-4" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='滿意' style="display:none;"/>
@@ -220,7 +220,7 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-4">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-5">&nbsp;很同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;" class="required"/>
             <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
             <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='普通' style="display:none;"/>
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
@@ -271,7 +271,7 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-4">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-5">&nbsp;很同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;" class="required"/>
             <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
             <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='普通' style="display:none;"/>
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
@@ -294,7 +294,7 @@
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-5">&nbsp;有些同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-6">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-7">&nbsp;非常同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;" class="required"/>
             <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
             <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='普通' style="display:none;"/>
@@ -317,7 +317,7 @@
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-2">&nbsp;我有時候會這樣想&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-3">&nbsp;我經常會這樣想&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-4">&nbsp;我幾乎總是這樣想&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='我沒有或極少這樣想' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='我沒有或極少這樣想' style="display:none;" class="required"/>
             <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='我有時候會這樣想' style="display:none;"/>
             <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='我經常會這樣想' style="display:none;"/>
             <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='我幾乎總是這樣想' style="display:none;"/>
