@@ -59,7 +59,7 @@
           <label class="uk-label uk-text-lead" for="年齡">年齡</label>
           <input class="uk-input uk-width-1-1" type="number" min=10 max=99 for="年齡" ng-model='form["年齡"]' placeholder="20">
         </fieldset>
-        <fieldset class="uk-fieldset uk-grid uk-form-horizontal">
+        <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="生理性別">生理性別</label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="男">&nbsp;男&nbsp;</label>
@@ -331,7 +331,7 @@
         <br><input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step>=11' type="submit" value="送出" ng-click='submitAndUpdateRadar()' id="reset">
       </div>
     </form>
-    <div class="uk-section uk-width-1-1" ng-show='step>=12'>
+    <div ng-cloak class="uk-section uk-width-1-1" ng-show='step>=12'>
       <section class="uk-section">
         <p class="uk-article">
           測驗結果出爐啦！！下面這個「九芒星圖」就是專屬於你個人的戀愛九型人格，據岡田尊司醫生的說法，你可以其中最高分的3個人格即為你主要的戀愛人格。此外，高於20分的人格也具有參考價值。<br>
