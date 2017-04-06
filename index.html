@@ -30,6 +30,7 @@
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/js/uikit.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.5.0/sha256.min.js'></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.min.css">
     <script type="text/javascript" src='./index.js'></script>
     <style type="text/css">
@@ -51,14 +52,14 @@
   </head>
   <body class="uk-width-1-1 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
     <form ng-cloak class="uk-grid uk-form" name="survey" id="survey" novalidate>
-      <div class="uk-section uk-width-1-1" ng-show='step===0'>
+      <div class="uk-section uk-width-1-1" ng-show='step===0' accept-charset="UTF-8">
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label" for="Email">請輸入您的 Email</label>
-          <input class="uk-width-1-1 uk-input" type="text" for="Email" ng-model='form["Email"]' name="email" id="email">
+          <input class="uk-width-1-1 uk-input" type="text" ng-model='question_answer[hashCode("Email")]' name="Email" id="Email">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="年齡">年齡</label>
-          <input class="uk-input uk-width-1-1" type="number" min=10 max=99 for="年齡" ng-model='form["年齡"]' placeholder="年齡">
+          <input class="uk-input uk-width-1-1" type="number" ng-model='question_answer[hashCode("年齡")]' placeholder="年齡">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="生理性別">生理性別</label>
@@ -66,14 +67,14 @@
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="男">&nbsp;男&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="女">&nbsp;女&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="其他生理性別">&nbsp;其他&nbsp;</label>
-            <input type="radio" id="男" ng-model='form["生理性別"]' name="生理性別" value="男" style="display:none;" class="required"/>
-            <input type="radio" id="女" ng-model='form["生理性別"]' name="生理性別" value="女" style="display:none;"/>
-            <input type="radio" id="其他生理性別" ng-model='form["生理性別"]' name="生理性別" value="其他" style="display:none;"/>
+            <input type="radio" id="男" ng-model='question_answer[hashCode("生理性別")]' name="生理性別" value="男" style="display:none;" class="required"/>
+            <input type="radio" id="女" ng-model='question_answer[hashCode("生理性別")]' name="生理性別" value="女" style="display:none;"/>
+            <input type="radio" id="其他生理性別" ng-model='question_answer[hashCode("生理性別")]' name="生理性別" value="其他" style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="我曾和______個人交往過">我曾和______個人交往過</label>
-          <input class="uk-input uk-width-1-1" type="number" min=0 max=99 for="我曾和______個人交往過" ng-model='form["我曾和______個人交往過"]' placeholder="我曾和______個人交往過">
+          <input class="uk-input uk-width-1-1" type="number" ng-model='question_answer[hashCode("我曾和______個人交往過")]' placeholder="我曾和______個人交往過">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="目前戀愛狀態">目前戀愛狀態</label>
@@ -83,11 +84,11 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="單身，而且目前無對象">&nbsp;單身，而且目前無對象&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="單身，目前有曖昧/追求對象">&nbsp;單身，目前有曖昧/追求對象&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="其他">&nbsp;其他&nbsp;</label>
-            <input type="radio" id="穩定交往中" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="穩定交往中" style="display:none;" class="required"/>
-            <input type="radio" id="已婚" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="已婚" style="display:none;"/>
-            <input type="radio" id="單身，而且目前無對象" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="單身，而且目前無對象" style="display:none;"/>
-            <input type="radio" id="單身，目前有曖昧/追求對象" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="單身，目前有曖昧/追求對象" style="display:none;"/>
-            <input type="radio" id="其他" ng-model='form["目前戀愛狀態"]' name="目前戀愛狀態" value="其他" style="display:none;"/>
+            <input type="radio" id="穩定交往中" ng-model='question_answer[hashCode("目前戀愛狀態")]' name="目前戀愛狀態" value="穩定交往中" style="display:none;" class="required"/>
+            <input type="radio" id="已婚" ng-model='question_answer[hashCode("目前戀愛狀態")]' name="目前戀愛狀態" value="已婚" style="display:none;"/>
+            <input type="radio" id="單身，而且目前無對象" ng-model='question_answer[hashCode("目前戀愛狀態")]' name="目前戀愛狀態" value="單身，而且目前無對象" style="display:none;"/>
+            <input type="radio" id="單身，目前有曖昧/追求對象" ng-model='question_answer[hashCode("目前戀愛狀態")]' name="目前戀愛狀態" value="單身，目前有曖昧/追求對象" style="display:none;"/>
+            <input type="radio" id="其他" ng-model='question_answer[hashCode("目前戀愛狀態")]' name="目前戀愛狀態" value="其他" style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
@@ -96,9 +97,9 @@
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="異性戀">&nbsp;異性戀&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="同性戀">&nbsp;同性戀&nbsp;</label>
             <label class="uk-button uk-width-large-1-3 uk-width-medium-1-3 uk-width-small-1-1" for="其他性向">&nbsp;其他&nbsp;</label>
-            <input type="radio" id="異性戀" ng-model='form["性向"]' name="性向" value="異性戀" style="display:none;" class="required"/>
-            <input type="radio" id="同性戀" ng-model='form["性向"]' name="性向" value="同性戀" style="display:none;"/>
-            <input type="radio" id="其他性向" ng-model='form["性向"]' name="性向" value="其他" style="display:none;"/>
+            <input type="radio" id="異性戀" ng-model='question_answer[hashCode("性向")]' name="性向" value="異性戀" style="display:none;" class="required"/>
+            <input type="radio" id="同性戀" ng-model='question_answer[hashCode("性向")]' name="性向" value="同性戀" style="display:none;"/>
+            <input type="radio" id="其他性向" ng-model='question_answer[hashCode("性向")]' name="性向" value="其他" style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
@@ -108,10 +109,10 @@
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="糾結複雜">&nbsp;糾結複雜&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="冷漠疏離">&nbsp;冷漠疏離&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="衝突不斷">&nbsp;衝突不斷&nbsp;</label>
-            <input type="radio" id="溫暖和諧" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="溫暖和諧" style="display:none;" class="required"/>
-            <input type="radio" id="糾結複雜" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="糾結複雜" style="display:none;"/>
-            <input type="radio" id="冷漠疏離" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="冷漠疏離" style="display:none;"/>
-            <input type="radio" id="衝突不斷" ng-model='form["下列哪一個形容詞最接近你的家庭（主要長大的那個家）"]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="衝突不斷" style="display:none;"/>
+            <input type="radio" id="溫暖和諧" ng-model='question_answer[hashCode("下列哪一個形容詞最接近你的家庭（主要長大的那個家）")]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="溫暖和諧" style="display:none;" class="required"/>
+            <input type="radio" id="糾結複雜" ng-model='question_answer[hashCode("下列哪一個形容詞最接近你的家庭（主要長大的那個家）")]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="糾結複雜" style="display:none;"/>
+            <input type="radio" id="冷漠疏離" ng-model='question_answer[hashCode("下列哪一個形容詞最接近你的家庭（主要長大的那個家）")]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="冷漠疏離" style="display:none;"/>
+            <input type="radio" id="衝突不斷" ng-model='question_answer[hashCode("下列哪一個形容詞最接近你的家庭（主要長大的那個家）")]' name="下列哪一個形容詞最接近你的家庭（主要長大的那個家）" value="衝突不斷" style="display:none;"/>
           </div>
         </fieldset>
         <br><button type="button" class="uk-width-1-1 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
@@ -121,14 +122,14 @@
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in question_set'>
           <label class="uk-label uk-text-lead" for="question" ng-bind="$parent.$index*10 + $index+1 + ' - ' +question"></label>
           <div class="uk-button-group" data-uk-button-radio>
-            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-1">&nbsp;不同意&nbsp;</label>
-            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-2">&nbsp;不同意也不否認&nbsp;</label>
-            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-3">&nbsp;同意&nbsp;</label>
-            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-4">&nbsp;非常同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value=1 style="display:none;" class="required"/>
-            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value=2 style="display:none;"/>
-            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value=3 style="display:none;"/>
-            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value=4 style="display:none;"/>
+            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{$parent.$index*10 + $index+1}}-1">&nbsp;不同意&nbsp;</label>
+            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{$parent.$index*10 + $index+1}}-2">&nbsp;不同意也不否認&nbsp;</label>
+            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{$parent.$index*10 + $index+1}}-3">&nbsp;同意&nbsp;</label>
+            <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{$parent.$index*10 + $index+1}}-4">&nbsp;非常同意&nbsp;</label>
+            <input type="radio" id="{{$parent.$index*10 + $index+1}}-1" name="{{$parent.$index*10 + $index+1}}" ng-model='question_answer[hashCode(question)]' value=1 style="display:none;" class="required"/>
+            <input type="radio" id="{{$parent.$index*10 + $index+1}}-2" name="{{$parent.$index*10 + $index+1}}" ng-model='question_answer[hashCode(question)]' value=2 style="display:none;"/>
+            <input type="radio" id="{{$parent.$index*10 + $index+1}}-3" name="{{$parent.$index*10 + $index+1}}" ng-model='question_answer[hashCode(question)]' value=3 style="display:none;"/>
+            <input type="radio" id="{{$parent.$index*10 + $index+1}}-4" name="{{$parent.$index*10 + $index+1}}" ng-model='question_answer[hashCode(question)]' value=4 style="display:none;"/>
           </div>
         </fieldset>
         <br>
@@ -147,7 +148,7 @@
         </section>
         <fieldset class="uk-fieldset uk-grid">
           <label class="uk-label uk-text-lead" for="背景資料：我們在一起______個月">91&nbsp;-&nbsp;背景資料：我們在一起______個月<br>（請填阿拉伯數字，若是目前穩定交往的對象／舊情人，請填寫交往時間；若是曖昧對象或一言難盡的感情對象，請填寫這段關係維繫的時間，超過年的話請換算成月，以利分析計算）</label>
-          <input class="uk-input uk-width-1-1" type="number" min=0 for="背景資料：我們在一起______個月" ng-model='form["背景資料：我們在一起______個月"]' placeholder="我們在一起______個月" class="required">
+          <input class="uk-input uk-width-1-1" type="number" ng-model='question_answer[hashCode("背景資料：我們在一起______個月")]' placeholder="我們在一起______個月" class="required">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
           "我不習慣向對方表達我內心深處的感覺",
@@ -169,12 +170,12 @@
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-4">&nbsp;有些同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-5">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-6">&nbsp;相當同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;" class="required"/>
-            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='有些同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-6" name="{{question}}" ng-model='question_answer[question]' value='相當同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='相當不同意' style="display:none;" class="required"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='有些不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='有些同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-6" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='相當同意' style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
@@ -185,11 +186,11 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-4">&nbsp;多&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-5">&nbsp;很多&nbsp;</label>
-            <input type="radio" id="他能滿足你多少的需求？-1" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='很少' style="display:none;" class="required"/>
-            <input type="radio" id="他能滿足你多少的需求？-2" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='一些' style="display:none;"/>
-            <input type="radio" id="他能滿足你多少的需求？-3" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='普通' style="display:none;"/>
-            <input type="radio" id="他能滿足你多少的需求？-4" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='多' style="display:none;"/>
-            <input type="radio" id="他能滿足你多少的需求？-5" name="他能滿足你多少的需求？" ng-model='question_answer["他能滿足你多少的需求？"]' value='很多' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-1" name="他能滿足你多少的需求？" ng-model='question_answer[hashCode("他能滿足你多少的需求？")]' value='很少' style="display:none;" class="required"/>
+            <input type="radio" id="他能滿足你多少的需求？-2" name="他能滿足你多少的需求？" ng-model='question_answer[hashCode("他能滿足你多少的需求？")]' value='一些' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-3" name="他能滿足你多少的需求？" ng-model='question_answer[hashCode("他能滿足你多少的需求？")]' value='普通' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-4" name="他能滿足你多少的需求？" ng-model='question_answer[hashCode("他能滿足你多少的需求？")]' value='多' style="display:none;"/>
+            <input type="radio" id="他能滿足你多少的需求？-5" name="他能滿足你多少的需求？" ng-model='question_answer[hashCode("他能滿足你多少的需求？")]' value='很多' style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
@@ -200,11 +201,11 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-4">&nbsp;滿意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-5">&nbsp;很滿意&nbsp;</label>
-            <input type="radio" id="你對這段關係有多滿意？-1" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='很不滿意' style="display:none;" class="required"/>
-            <input type="radio" id="你對這段關係有多滿意？-2" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='有些不滿意' style="display:none;"/>
-            <input type="radio" id="你對這段關係有多滿意？-3" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='普通' style="display:none;"/>
-            <input type="radio" id="你對這段關係有多滿意？-4" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='滿意' style="display:none;"/>
-            <input type="radio" id="你對這段關係有多滿意？-5" name="你對這段關係有多滿意？" ng-model='question_answer["你對這段關係有多滿意？"]' value='很滿意' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-1" name="你對這段關係有多滿意？" ng-model='question_answer[hashCode("你對這段關係有多滿意？")]' value='很不滿意' style="display:none;" class="required"/>
+            <input type="radio" id="你對這段關係有多滿意？-2" name="你對這段關係有多滿意？" ng-model='question_answer[hashCode("你對這段關係有多滿意？")]' value='有些不滿意' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-3" name="你對這段關係有多滿意？" ng-model='question_answer[hashCode("你對這段關係有多滿意？")]' value='普通' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-4" name="你對這段關係有多滿意？" ng-model='question_answer[hashCode("你對這段關係有多滿意？")]' value='滿意' style="display:none;"/>
+            <input type="radio" id="你對這段關係有多滿意？-5" name="你對這段關係有多滿意？" ng-model='question_answer[hashCode("你對這段關係有多滿意？")]' value='很滿意' style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
@@ -221,11 +222,11 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-4">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-5">&nbsp;很同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;" class="required"/>
-            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='普通' style="display:none;"/>
-            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='很同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='很不同意' style="display:none;" class="required"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='普通' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='很同意' style="display:none;"/>
           </div>
         </fieldset>
         <br>
@@ -272,11 +273,11 @@
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-3">&nbsp;普通&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-4">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-5">&nbsp;很同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='很不同意' style="display:none;" class="required"/>
-            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='普通' style="display:none;"/>
-            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='很同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='很不同意' style="display:none;" class="required"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='普通' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='很同意' style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
@@ -295,13 +296,13 @@
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-5">&nbsp;有些同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-6">&nbsp;同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-7">&nbsp;非常同意&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='相當不同意' style="display:none;" class="required"/>
-            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='不同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='有些不同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='普通' style="display:none;"/>
-            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[question]' value='有些同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-6" name="{{question}}" ng-model='question_answer[question]' value='同意' style="display:none;"/>
-            <input type="radio" id="{{question}}-7" name="{{question}}" ng-model='question_answer[question]' value='相當同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='相當不同意' style="display:none;" class="required"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='有些不同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='普通' style="display:none;"/>
+            <input type="radio" id="{{question}}-5" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='有些同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-6" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='同意' style="display:none;"/>
+            <input type="radio" id="{{question}}-7" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='相當同意' style="display:none;"/>
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
@@ -318,10 +319,10 @@
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-2">&nbsp;我有時候會這樣想&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-3">&nbsp;我經常會這樣想&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-4">&nbsp;我幾乎總是這樣想&nbsp;</label>
-            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[question]' value='我沒有或極少這樣想' style="display:none;" class="required"/>
-            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[question]' value='我有時候會這樣想' style="display:none;"/>
-            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[question]' value='我經常會這樣想' style="display:none;"/>
-            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[question]' value='我幾乎總是這樣想' style="display:none;"/>
+            <input type="radio" id="{{question}}-1" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='我沒有或極少這樣想' style="display:none;" class="required"/>
+            <input type="radio" id="{{question}}-2" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='我有時候會這樣想' style="display:none;"/>
+            <input type="radio" id="{{question}}-3" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='我經常會這樣想' style="display:none;"/>
+            <input type="radio" id="{{question}}-4" name="{{question}}" ng-model='question_answer[hashCode(question)]' value='我幾乎總是這樣想' style="display:none;"/>
           </div>
         </fieldset>
         <br>
@@ -330,11 +331,16 @@
           <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
         </div>
         <br>
-        <button  type="button"  class="uk-width-1-1 uk-button uk-button-primary" ng-click='prev_section()' id="reset">回上一頁檢查一下，有沒有沒填到的問題？</button>
+        <button type="button"  class="uk-width-1-1 uk-button uk-button-primary" ng-click='prev_section()' id="reset">回上一頁檢查一下，有沒有沒填到的問題？</button>
         <input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step>=11' type="submit" value="送出" ng-click='submitAndUpdateRadar()'>
       </div>
     </form>
     <div ng-cloak class="uk-section uk-width-1-1" ng-show='step>=12'>
+            <div class="uk-width-1-1 uk-button-group" ng-show='step>=12'>
+          <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
+          <button  type="button"  class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
+        </div>
+
       <section class="uk-section">
         <p class="uk-article">
           測驗結果出爐啦！！下面這個「九芒星圖」就是專屬於你個人的戀愛九型人格，據岡田尊司醫生的說法，你可以其中最高分的3個人格即為你主要的戀愛人格。此外，高於20分的人格也具有參考價值。<br>
