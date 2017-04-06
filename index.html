@@ -145,7 +145,7 @@
           </p>
         </section>
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead" for="背景資料：我們在一起______個月">背景資料：我們在一起______個月<br>（請填阿拉伯數字，若是目前穩定交往的對象／舊情人，請填寫交往時間；若是曖昧對象或一言難盡的感情對象，請填寫這段關係維繫的時間，超過年的話請換算成月，以利分析計算）</label>
+          <label class="uk-label uk-text-lead" for="背景資料：我們在一起______個月">91&nbsp;-&nbsp;背景資料：我們在一起______個月<br>（請填阿拉伯數字，若是目前穩定交往的對象／舊情人，請填寫交往時間；若是曖昧對象或一言難盡的感情對象，請填寫這段關係維繫的時間，超過年的話請換算成月，以利分析計算）</label>
           <input class="uk-input uk-width-1-1" type="number" min=0 for="背景資料：我們在一起______個月" ng-model='form["背景資料：我們在一起______個月"]' placeholder="0">
         </fieldset>
         <fieldset class="uk-fieldset uk-grid" ng-repeat='question in [
@@ -160,7 +160,7 @@
           "當我需要對方時，他卻無法適時出現，我就會覺得挫折",
           "我會很希望對方一直把注意力放在我身上"
           ]'>
-          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1 + ' - ' +question"></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+1 + ' - ' +question"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-1">&nbsp;相當不同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-6 uk-width-medium-1-6 uk-width-small-1-1" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
@@ -177,7 +177,7 @@
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+10 + ' - ' +'他能滿足你多少的需求？'"></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+11 + ' - ' +'他能滿足你多少的需求？'"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-1">&nbsp;很少&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="他能滿足你多少的需求？-2">&nbsp;一些&nbsp;</label>
@@ -192,7 +192,7 @@
           </div>
         </fieldset>
         <fieldset class="uk-fieldset uk-grid">
-          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+11 + ' - ' +'你對這段關係有多滿意？'"></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+12 + ' - ' +'你對這段關係有多滿意？'"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-1">&nbsp;很不滿意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="你對這段關係有多滿意？-2">&nbsp;有些不滿意&nbsp;</label>
@@ -213,7 +213,7 @@
           "我愛他",
           "我們這段關係有許多問題"
           ]'>
-          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+12 + ' - ' +question"></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+13 + ' - ' +question"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-1">&nbsp;很不同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
@@ -264,7 +264,7 @@
           "我覺得自己沒有什麼值得驕傲的地方",
           "整體來說，我喜歡我自己"
           ]'>
-          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+7 + ' - ' +question"></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+8 + ' - ' +question"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-1">&nbsp;很不同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-1" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
@@ -285,7 +285,7 @@
           "到目前為止，我能夠在生活中獲得我所想要的事物",
           "如果生活可以重頭來過，我不會做大幅度的改變"
           ]'>
-          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+28 + ' - ' +question"></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+29 + ' - ' +question"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-1">&nbsp;非常不同意&nbsp;</label>
             <label class="uk-button uk-width-large-1-7 uk-width-medium-1-7 uk-width-small-1-1" for="{{question}}-2">&nbsp;不同意&nbsp;</label>
@@ -311,7 +311,7 @@
           "我覺得寂寞",
           "人們是不友善的"
           ]'>
-          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+33 + ' - ' +question"></label>
+          <label class="uk-label uk-text-lead" for="question" ng-bind="(step -1)*10 + $index+1+34 + ' - ' +question"></label>
           <div class="uk-button-group" data-uk-button-radio>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-1">&nbsp;我沒有或極少這樣想&nbsp;</label>
             <label class="uk-button uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1" for="{{question}}-2">&nbsp;我有時候會這樣想&nbsp;</label>
@@ -334,9 +334,9 @@
     <div class="uk-section uk-width-1-1" ng-show='step>=12'>
       <section class="uk-section">
         <p class="uk-article">
-          <!-- <h2> -->
-          測驗結果出爐啦！！下面這個「九芒星圖」就是專屬於你個人的戀愛九型人格，據岡田尊司醫生的說法，其中最高分的 3 個人格即為你主要的戀愛人格。此外，高於 20 分的人格也具有參考價值。<br>倘若對此測量本身有任何疑問的夥伴，也歡迎來信討論。haitaibear@gmail.com
-          <!-- </h2> -->
+          測驗結果出爐啦！！下面這個「九芒星圖」就是專屬於你個人的戀愛九型人格，據岡田尊司醫生的說法，你可以其中最高分的3個人格即為你主要的戀愛人格。此外，高於20分的人格也具有參考價值。<br>
+          <a target="_blank"  href="https://inbound.tw/九芒星圖解說/">進一步人格解說</a>
+          倘若你對此測量本身有任何疑問的夥伴，也歡迎來信討論。haitaibear@gmail.com
         </p>
       </section>
       <canvas id="myChart" width="400" height="400"></canvas>
