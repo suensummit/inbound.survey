@@ -328,7 +328,9 @@
           <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='prev_section()' id="reset">上一頁</button>
           <button class="uk-width-1-2 uk-button uk-button-primary" ng-click='next_section()' id="reset">下一頁</button>
         </div>
-        <br><input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step>=11' type="submit" value="送出" ng-click='submitAndUpdateRadar()' id="reset">
+        <br>
+        <button class="uk-width-1-1 uk-button uk-button-primary" ng-click='prev_section()' id="reset">回上一頁檢查一下，有沒有沒填到的問題？</button>
+        <input class="uk-width-1-1 uk-button uk-button-primary" ng-show='step>=11' type="submit" value="送出" ng-click='submitAndUpdateRadar()'>
       </div>
     </form>
     <div ng-cloak class="uk-section uk-width-1-1" ng-show='step>=12'>
