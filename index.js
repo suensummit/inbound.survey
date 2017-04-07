@@ -58,7 +58,7 @@ app.controller("FormCtrl", function($scope) {
       }]
     };
     if (
-      Object.keys(fields).length === 147
+      Object.keys(fields).length >= 147
     ) {
       buildChart(data);
       axios.post(airtable_write_endpoint, {
