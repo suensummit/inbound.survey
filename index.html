@@ -51,6 +51,14 @@
     </style>
   </head>
   <body class="uk-width-1-1 uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom" ng-app='formApp' ng-controller="FormCtrl">
+  <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=1312104052230634";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <form ng-cloak class="uk-grid uk-form" name="survey" id="survey" novalidate>
       <div class="uk-section uk-width-1-1" ng-show='step===0' accept-charset="UTF-8">
         <fieldset class="uk-fieldset uk-grid">
@@ -353,9 +361,8 @@
         </p>
       </section>
       <canvas id="myChart" width="400" height="400"></canvas>
-      <a class="uk-width-1-1 uk-button uk-button-primary" href="#" onclick="saveImage();" >&nbsp;下載結果&nbsp;</a>
       <section class="uk-section">
-      <p text-align="center" class="uk-article"> 
+      <p text-align="center" class="uk-article"> <div class="fb-share-button" data-href="https://inbound.tw/%E6%88%80%E6%84%9B%E9%80%99%E7%A8%AE%E7%97%85%E6%B8%AC%E6%B8%AC%E4%BD%A0%E7%9A%84%E6%88%80%E6%84%9B%E4%BA%BA%E6%A0%BC/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Finbound.tw%2F%25E6%2588%2580%25E6%2584%259B%25E9%2580%2599%25E7%25A8%25AE%25E7%2597%2585%25E6%25B8%25AC%25E6%25B8%25AC%25E4%25BD%25A0%25E7%259A%2584%25E6%2588%2580%25E6%2584%259B%25E4%25BA%25BA%25E6%25A0%25BC%2F&amp;src=sdkpreparse">分享</a></div>
       <br>
           最高分的3個人格即為你主要的戀愛人格。高於20分的人格也具有參考價值。</p><h2><a target="_blank"  href="https://inbound.tw/九芒星圖解說/"> → 進一步人格解說</a>
         </h2></p>
